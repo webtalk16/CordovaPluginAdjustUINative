@@ -32,7 +32,10 @@
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
-	[self.webView setBackgroundColor:[UIColor purpleColor]];
+	[self.webView setBackgroundColor:[UIColor colorWithRed:66.0f/255.0f
+                green:95.0f/255.0f
+                 blue:156.0f/255.0f
+                alpha:1.0f]];
 	[self.webView setOpaque:NO];
 }
 
