@@ -7,9 +7,7 @@
 }
 
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
-- (void)sendMessageToNativeAndBack2:(CDVInvokedUrlCommand*)command;
 - (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
-- (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation AdjustUINative
@@ -18,20 +16,6 @@
 {
     CDVPluginResult* pluginResult = nil;
     NSString *message = [command.arguments objectAtIndex:0];
-
-    if (message != nil && [message length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-- (void)sendMessageToNativeAndBack2:(CDVInvokedUrlCommand*)command
-{
-    CDVPluginResult* pluginResult = nil;
-    NSString *message = NSStringFromClass([self class]);
 
     if (message != nil && [message length] > 0) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
@@ -60,24 +44,6 @@
 	}
 
 }
-
-- (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command
-{
-    CDVPluginResult* pluginResult = nil;
-	NSString *echo = NSStringFromClass([self class]);
-
-	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-
-	for (id subview in self.webView.subviews) {
-		echo = NSStringFromClass([subview class]);
-		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
-			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-			[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-		}
-	}
-}
-
 
 
 @end
