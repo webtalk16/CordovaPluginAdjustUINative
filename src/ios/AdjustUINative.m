@@ -2,19 +2,27 @@
 
 #import <Cordova/CDV.h>
 
-@interface AdjustUINative : CDVPlugin {
+
+
+@interface AdjustUINative : CDVPlugin 
+{
   // Member variables go here.
 }
 
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
+
 @end
+
+
+
 
 @implementation AdjustUINative
 
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
+    //NSString* echo = [command.arguments objectAtIndex:0];
+	NSString *echo = NSStringFromClass([instance class]);
 
     if (echo != nil && [echo length] > 0) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
@@ -23,6 +31,14 @@
     }
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
+	[self.webView setBackgroundColor:[UIColor purpleColor]];
+	[self.webView setOpaque:NO];
 }
+
+
+
+
+
 
 @end
