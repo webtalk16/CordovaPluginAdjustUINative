@@ -8,6 +8,7 @@
 
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
 - (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
+- (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation AdjustUINative
@@ -28,7 +29,6 @@
 
 - (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command
 {
-    CDVPluginResult* pluginResult = nil;
     
 	float rbgRed = [[command.arguments objectAtIndex:0]  floatValue];
 	float rbgGreen = [[command.arguments objectAtIndex:1]  floatValue];
@@ -38,31 +38,29 @@
 	[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
 	[self.webView setOpaque:NO];
 
-	for (id subview in self.webView.subviews)
-		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+	for (id subview in self.webView.subviews) {
+		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = NO;
+		}
+	}
 
 }
 
 - (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    
 	NSString *echo = NSStringFromClass([self class]);
 
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
+	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-
-	[self.webView setBackgroundColor:[UIColor colorWithRed:66.0f/255.0f
-                green:95.0f/255.0f
-                 blue:156.0f/255.0f
-                alpha:1.0f]];
-	[self.webView setOpaque:NO];
+	for (id subview in self.webView.subviews) {
+		NSString *echo2 = NSStringFromClass([subview class]);
+		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo2];
+			[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+		}
+	}
 }
 
 
