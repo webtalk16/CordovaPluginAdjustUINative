@@ -1,5 +1,5 @@
 
-AdjustUINative Cordova Plugin ---
+AdjustUINative Cordova Plugin ----
 
 Steps to create this plugin
 
