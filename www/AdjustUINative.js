@@ -12,3 +12,7 @@ window.changeWebViewBgColor = function (argsArray) {
 window.alertInfoFromNative = function (alertCallback) {
     cordova.exec(alertCallback, null, "AdjustUINative", "alertInfoFromNative", []);
 };
+
+window.sendMessageToNativeAndBack2 = function (argsArray, success, error) {
+    cordova.exec(success, error, "AdjustUINative", "sendMessageToNativeAndBack2", argsArray);
+};
