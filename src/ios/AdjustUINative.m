@@ -30,10 +30,10 @@
 {
     CDVPluginResult* pluginResult = nil;
     
-	float rbgRed = [command.arguments objectAtIndex:0];
-	float rbgGreen = [command.arguments objectAtIndex:1];
-	float rbgBlue = [command.arguments objectAtIndex:2];
-	float rbgAlpha = [command.arguments objectAtIndex:3];
+	float rbgRed = (float)[command.arguments objectAtIndex:0];
+	float rbgGreen = (float)[command.arguments objectAtIndex:1];
+	float rbgBlue = (float)[command.arguments objectAtIndex:2];
+	float rbgAlpha = (float)[command.arguments objectAtIndex:3];
 
     if (rbgRed != nil && rbgGreen != nil && rbgBlue != nil && rbgAlpha != nil) {
 		[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha];
