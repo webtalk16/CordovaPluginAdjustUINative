@@ -21,7 +21,7 @@
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    //NSString* echo = [command.arguments objectAtIndex:0];
+    
 	NSString *echo = NSStringFromClass([instance class]);
 
     if (echo != nil && [echo length] > 0) {
