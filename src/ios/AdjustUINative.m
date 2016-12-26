@@ -30,13 +30,13 @@
 {
     CDVPluginResult* pluginResult = nil;
     
-	float rbgRed = [[command.arguments objectAtIndex:0]  floatValue];;
-	float rbgGreen = [[command.arguments objectAtIndex:1]  floatValue];;
-	float rbgBlue = [[command.arguments objectAtIndex:2]  floatValue];;
-	float rbgAlpha = [[command.arguments objectAtIndex:3]  floatValue];;
+	float rbgRed = [[command.arguments objectAtIndex:0]  floatValue];
+	float rbgGreen = [[command.arguments objectAtIndex:1]  floatValue];
+	float rbgBlue = [[command.arguments objectAtIndex:2]  floatValue];
+	float rbgAlpha = [[command.arguments objectAtIndex:3]  floatValue];
 
     if (rbgRed != nil && rbgGreen != nil && rbgBlue != nil && rbgAlpha != nil) {
-		[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha];
+		[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
 		[self.webView setOpaque:NO];
     }
 }
