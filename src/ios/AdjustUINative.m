@@ -22,7 +22,7 @@
 {
     CDVPluginResult* pluginResult = nil;
     
-	NSString *echo = NSStringFromClass([instance class]);
+	NSString *echo = NSStringFromClass([self class]);
 
     if (echo != nil && [echo length] > 0) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
