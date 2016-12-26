@@ -35,10 +35,8 @@
 	float rbgBlue = [[command.arguments objectAtIndex:2]  floatValue];
 	float rbgAlpha = [[command.arguments objectAtIndex:3]  floatValue];
 
-    if (rbgRed != nil && rbgGreen != nil && rbgBlue != nil && rbgAlpha != nil) {
-		[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
-		[self.webView setOpaque:NO];
-    }
+	[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
+	[self.webView setOpaque:NO];
 }
 
 - (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command
