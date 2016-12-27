@@ -38,6 +38,7 @@
 	[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
 	[self.webView setOpaque:NO];
 
+	((UIScrollView *).bounces = NO;
 	for (id subview in self.webView.subviews) {
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
