@@ -1,8 +1,9 @@
 
-#import <Cordova/AdjustUINative.h>
+#import <Cordova/CDVPlugin.h>
 
-@interface AdjustUINative : AdjustNativeUI
+@interface AdjustUINative : CDVPlugin
 
-- (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
+	- (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
+	- (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
 
 @end
