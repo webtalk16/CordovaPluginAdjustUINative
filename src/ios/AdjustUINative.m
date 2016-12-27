@@ -15,6 +15,7 @@
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
+	NSString *echoViewName = NSStringFromClass([self class]);
     NSString *message = [command.arguments objectAtIndex:0];
 
     if (message != nil && [message length] > 0) {
@@ -39,10 +40,27 @@
 
 	for (id subview in self.webView.subviews) {
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
-			((UIScrollView *)subview).bounces = NO;
+			((UIScrollView *)subview).bounces = YES;
 		}
 	}
 
+}
+
+- (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+	NSString *echo = NSStringFromClass([self class]);
+
+	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+
+	for (id subview in self.webView.subviews) {
+		echo = NSStringFromClass([subview class]);
+		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
+			pluginResult += [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+		}
+	}
+
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 
