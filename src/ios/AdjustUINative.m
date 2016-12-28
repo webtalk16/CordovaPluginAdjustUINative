@@ -50,7 +50,7 @@
 
 	NSString *message = NSStringFromClass([self class]);
 	CDVPluginResult* pluginResult = nil;
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:count];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:count];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
 }
