@@ -38,8 +38,11 @@
 	[self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
 	[self.webView setOpaque:NO];
 
+	static int count = 0;
+
 	self.webView.scrollView.bounces = NO;
 	for (id subview in self.webView.subviews) {
+		count = count + 1;
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
 		}
@@ -47,7 +50,7 @@
 
 	NSString *message = NSStringFromClass([self class]);
 	CDVPluginResult* pluginResult = nil;
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:count];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
 }
