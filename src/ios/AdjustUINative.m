@@ -39,7 +39,7 @@
 	[self.webView setOpaque:NO];
 
 	// static int count = 0;
-	NSString *message = "empty string check";
+	NSString *message = @"empty string check";
 
 	self.webView.scrollView.bounces = NO;
 	for (id subview in self.webView.subviews) {
