@@ -16,7 +16,9 @@
 //- (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
 //@end
 
-@implementation AdjustUINative
+@implementation AdjustUINative {
+  // Member variables go here.
+}
 
 - (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command
 {
