@@ -2,6 +2,10 @@
 
 #import <Cordova/CDV.h>
 
+// WebViews by Class Name
+//	UIScrollView - main view
+//		_UIWebViewScrollView - subview
+
 @interface AdjustUINative : CDVPlugin {
   // Member variables go here.
 }
@@ -39,14 +43,13 @@
 	[self.webView setOpaque:NO];
 
 	// static int count = 0;
-	NSString *message = @"empty string check";
+	NSString *message = NSStringFromClass([self.webView class]);
 
 	self.webView.scrollView.bounces = NO;
 	for (id subview in self.webView.subviews) {
 		// count = count + 1;
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
-			message = NSStringFromClass([subview class]);
 		}
 	}
 
