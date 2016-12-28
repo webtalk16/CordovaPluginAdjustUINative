@@ -1,19 +1,20 @@
 /********* AdjustUINative.m Cordova Plugin Implementation *******/
 
-#import <Cordova/CDV.h>
+//#import <Cordova/CDV.h>
+#import "AdjustUINative.h"
 
 // WebViews by Class Name
-//	UIWebView - main view ((NSStringFromClass([self.webView class
+//	UIWebView - main view ((NSStringFromClass([self.webView class -OR- NSStringFromClass([UIWeblView class]);
 //	UIScrollView - main view (NSStringFromClass([UIScrollView class
 //		_UIWebViewScrollView - subview (NSStringFromClass([subview class]); --- [subview class] isSubclassOfClass: [UIScrollView class]
 
-@interface AdjustUINative : CDVPlugin {
-  // Member variables go here.
-}
+//@interface AdjustUINative : CDVPlugin {
+//  // Member variables go here.
+//}
 
-- (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
-- (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
-@end
+//- (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
+//- (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
+//@end
 
 @implementation AdjustUINative
 
