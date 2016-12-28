@@ -3,9 +3,9 @@
 #import <Cordova/CDV.h>
 
 // WebViews by Class Name
-//	UIWeblView - main view
-//	UIScrollView - main view
-//		_UIWebViewScrollView - subview
+//	UIWeblView - main view ((NSStringFromClass([self.webView class
+//	UIScrollView - main view (NSStringFromClass([UIScrollView class
+//		_UIWebViewScrollView - subview (NSStringFromClass([subview class]); --- [subview class] isSubclassOfClass: [UIScrollView class]
 
 @interface AdjustUINative : CDVPlugin {
   // Member variables go here.
@@ -51,7 +51,7 @@
 		// count = count + 1;
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
-			message = NSStringFromClass([UIScrollView class]);
+			message = NSStringFromClass([subview.webview class]);
 		}
 	}
 
