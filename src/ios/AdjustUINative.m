@@ -3,7 +3,7 @@
 #import <Cordova/CDV.h>
 
 // WebViews by Class Name
-//	UIWeblView - main view ((NSStringFromClass([self.webView class
+//	UIWebView - main view ((NSStringFromClass([self.webView class
 //	UIScrollView - main view (NSStringFromClass([UIScrollView class
 //		_UIWebViewScrollView - subview (NSStringFromClass([subview class]); --- [subview class] isSubclassOfClass: [UIScrollView class]
 
@@ -53,7 +53,7 @@
 		}
 	}
 
-	NSString *message = NSStringFromClass([UIWeblView class]);
+	NSString *message = NSStringFromClass([UIWebView class]);
 	// NSString *message = NSStringFromClass([self class]);
 	CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
