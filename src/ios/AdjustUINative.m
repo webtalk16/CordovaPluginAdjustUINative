@@ -45,6 +45,11 @@
 		}
 	}
 
+	NSString *message = NSStringFromClass([self class]);
+	CDVPluginResult* pluginResult = nil;
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
 }
 
 //- (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command
