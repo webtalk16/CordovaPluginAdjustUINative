@@ -45,10 +45,11 @@
 		// count = count + 1;
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
+			NSString *message = NSStringFromClass([subview class]);
 		}
 	}
 
-	NSString *message = NSStringFromClass([UIScrollView class]);
+	//NSString *message = NSStringFromClass([UIScrollView class]);
 	// NSString *message = NSStringFromClass([self class]);
 	CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
