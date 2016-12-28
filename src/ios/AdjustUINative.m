@@ -3,6 +3,7 @@
 #import <Cordova/CDV.h>
 
 // WebViews by Class Name
+//	UIWeblView - main view
 //	UIScrollView - main view
 //		_UIWebViewScrollView - subview
 
@@ -43,13 +44,14 @@
 	[self.webView setOpaque:NO];
 
 	// static int count = 0;
-	NSString *message = NSStringFromClass([self.webView class]);
+	NSString *message = @"start my string";
 
 	self.webView.scrollView.bounces = NO;
 	for (id subview in self.webView.subviews) {
 		// count = count + 1;
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
+			message = NSStringFromClass([UIScrollView class]);
 		}
 	}
 
