@@ -44,18 +44,16 @@
 	[self.webView setOpaque:NO];
 
 	// static int count = 0;
-	NSString *message = @"start my string";
 
 	self.webView.scrollView.bounces = NO;
 	for (id subview in self.webView.subviews) {
 		// count = count + 1;
 		if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 			((UIScrollView *)subview).bounces = YES;
-			message = NSStringFromClass([subview.webview class]);
 		}
 	}
 
-	//NSString *message = NSStringFromClass([UIScrollView class]);
+	NSString *message = NSStringFromClass([UIWeblView class]);
 	// NSString *message = NSStringFromClass([self class]);
 	CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
