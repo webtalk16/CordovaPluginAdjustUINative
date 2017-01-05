@@ -31,7 +31,7 @@ public class AdjustUINative extends CordovaPlugin {
     }
 
 	// private void changeWebViewBgColor:(CDVInvokedUrlCommand*)command
-	private void changeWebViewBgColor(String message, CallbackContext callbackContext) {
+	private void changeWebViewBgColor(Array<Integer> message) {
 	{
     
 		// float rbgRed = [[command.arguments objectAtIndex:0]  floatValue];
