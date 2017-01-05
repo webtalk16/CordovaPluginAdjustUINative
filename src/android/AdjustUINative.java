@@ -1,4 +1,4 @@
-package cordova-plugin-adjust-ui-native.AdjustUINative;
+
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
