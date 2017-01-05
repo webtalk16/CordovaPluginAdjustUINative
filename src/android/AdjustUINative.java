@@ -29,28 +29,4 @@ public class AdjustUINative extends CordovaPlugin {
             callbackContext.error("Expected one non-empty string argument.");
         }
     }
-
-	// private void changeWebViewBgColor:(CDVInvokedUrlCommand*)command
-	private void changeWebViewBgColor(Array<Integer> message) {
-	{
-    
-		// float rbgRed = [[command.arguments objectAtIndex:0]  floatValue];
-		// float rbgGreen = [[command.arguments objectAtIndex:1]  floatValue];
-		// float rbgBlue = [[command.arguments objectAtIndex:2]  floatValue];
-		// float rbgAlpha = [[command.arguments objectAtIndex:3]  floatValue];
-		// 
-		// [self.webView setBackgroundColor:[UIColor colorWithRed:rbgRed/255.0f green:rbgGreen/255.0f blue:rbgBlue/255.0f alpha:rbgAlpha]];
-		// [self.webView setOpaque:NO];
-		// 
-		// // static int count = 0;
-		// 
-		// self.webView.scrollView.bounces = NO;
-		// for (id subview in self.webView.subviews) {
-		// 	// count = count + 1;
-		// 	if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
-		// 		((UIScrollView *)subview).bounces = YES;
-		// 	}
-		// }
-
-	}
 }
