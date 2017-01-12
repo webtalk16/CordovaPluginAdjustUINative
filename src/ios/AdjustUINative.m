@@ -70,7 +70,7 @@
 	bool makeBounce = [command.arguments objectAtIndex:0];
 
 	self.webView.scrollView.bounces = NO;
-	if(makeBounce){
+	if(makeBounce == YES){
 		for (id subview in self.webView.subviews) {
 			if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 				((UIScrollView *)subview).bounces = YES;
