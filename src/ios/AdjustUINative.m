@@ -67,11 +67,23 @@
 
 - (void)bounces:(CDVInvokedUrlCommand*)command
 {
-	for (id subview in self.webView.subviews) {
+	bool makeBounce = [command.arguments objectAtIndex:0];
+
+	self.webView.scrollView.bounces = NO;
+	if(makeBounce){
+		for (id subview in self.webView.subviews) {
+			if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
+				((UIScrollView *)subview).bounces = YES;
+			}
+		}
+	}
+	else {
+		for (id subview in self.webView.subviews) {
 			if ([[subview class] isSubclassOfClass: [UIScrollView class] ]) {
 				((UIScrollView *)subview).bounces = NO;
 			}
 		}
+	}
 }
 
 //- (void)alertInfoFromNative:(CDVInvokedUrlCommand*)command
