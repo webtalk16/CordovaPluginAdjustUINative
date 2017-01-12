@@ -67,7 +67,7 @@
 
 - (void)bounces:(CDVInvokedUrlCommand*)command
 {
-	bool makeBounce = [[command.arguments objectAtIndex:0]  floatValue];
+	// bool makeBounce = [[command.arguments objectAtIndex:0]  floatValue];
 
 	// self.webView.scrollView.bounces = NO;
 	//	if(makeBounce){
