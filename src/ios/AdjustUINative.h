@@ -5,6 +5,6 @@
 
 	- (void)sendMessageToNativeAndBack:(CDVInvokedUrlCommand*)command;
 	- (void)changeWebViewBgColor:(CDVInvokedUrlCommand*)command;
-	- (void)bounces:(CDVInvokedUrlCommand*)command
+	- (void)bounces:(CDVInvokedUrlCommand*)command;
 
 @end
