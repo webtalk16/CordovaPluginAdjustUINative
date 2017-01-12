@@ -16,6 +16,16 @@ public class AdjustUINative extends CordovaPlugin {
             this.sendMessageToNativeAndBack(message, callbackContext);
             return true;
         }
+		if (action.equals("changeWebViewBgColor")) {
+			// add func below
+            return true;
+        }
+		if (action.equals("bounces")) {
+            // boolean makeBounce = args.getString(0);
+            // this.bounces(makeBounce, callbackContext);
+			// add func below
+            return true;
+        }
         return false;
     }
 
